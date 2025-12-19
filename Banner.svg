@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff66cc"></stop>
+      <stop offset="0.5" stop-color="#8b7bff"></stop>
+      <stop offset="1" stop-color="#66ccff"></stop>
+      <animate attributeName="x1" values="0;1;0" dur="8s" repeatCount="indefinite"></animate>
+      <animate attributeName="x2" values="1;2;1" dur="8s" repeatCount="indefinite"></animate>
+    </linearGradient>
+
+    <filter id="glow" x="-70%" y="-70%" width="240%" height="240%">
+      <feGaussianBlur stdDeviation="3.0" result="b"></feGaussianBlur>
+      <feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+    </filter>
+
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.6" result="b"></feGaussianBlur>
+      <feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Card base -->
+  <rect width="1200" height="420" rx="26" fill="#0b0b12"></rect>
+  <rect x="18" y="18" width="1164" height="384" rx="22" fill="url(#bg)" opacity="0.12"></rect>
+  <rect x="18" y="18" width="1164" height="384" rx="22" fill="#000" opacity="0.22"></rect>
+
+  <!-- TOP gameplay strip -->
+  <g transform="translate(30,28)">
+    <rect x="0" y="0" width="1140" height="170" rx="18" fill="#000" opacity="0.18"></rect>
+    <rect x="0" y="0" width="1140" height="170" rx="18" fill="url(#bg)" opacity="0.09"></rect>
+
+    <circle cx="170" cy="80" r="190" fill="#ff66cc" opacity="0.06" filter="url(#soft)"></circle>
+    <circle cx="990" cy="90" r="210" fill="#66ccff" opacity="0.05" filter="url(#soft)"></circle>
+
+    <!-- Followpoints: sequential (no movement) -->
+    <!-- C1->C2 (active ~0.12..0.33) -->
+    <circle cx="266" cy="90" r="4.2" fill="#fff" opacity="0" filter="url(#soft)">
+      <animate attributeName="opacity" dur="3s" repeatCount="indefinite" values="0;0;0.8;0.8;0" keyTimes="0;0.10;0.14;0.20;1"></animate>
+    </circle>
+    <circle cx="342" cy="85" r="4.2" fill="#fff" opacity="0" filter="url(#soft)">
+      <animate attributeName="opacity" dur="3s" repeatCount="indefinite" values="0;0;0.8;0.8;0" keyTimes="0;0.14;0.18;0.24;1"></animate>
+    </circle>
+    <circle cx="418" cy="80" r="4.2" fill="#fff" opacity="0" filter="url(#soft)">
+      <animate attributeName="opacity" dur="3s" repeatCount="indefinite" values="0;0;0.8;0.8;0" keyTimes="0;0.18;0.22;0.28;1"></animate>
+    </circle>
+    <circle cx="494" cy="75" r="4.2" fill="#fff" opacity="0" filter="url(#soft)">
+      <animate attributeName="opacity" dur="3s" repeatCount="indefinite" values="0;0;0.8;0.8;0" keyTimes="0;0.22;0.26;0.33;1"></animate>
+    </circle>
+
+    <!-- C2->C3 (active ~0.45..0.66) -->
+    <circle cx="646" cy="78" r="4.2" fill="#fff" opacity="0" filter="url(#soft)">
+      <animate attributeName="opacity" dur="3s" repeatCount="indefinite" values="0;0;0.8;0.8;0" keyTimes="0;0.44;0.48;0.54;1"></animate>
+    </circle>
+    <circle cx="722" cy="86" r="4.2" fill="#fff" opacity="0" filter="url(#soft)">
+      <animate attributeName="opacity" dur="3s" repeatCount="indefinite" values="0;0;0.8;0.8;0" keyTimes="0;0.48;0.52;0.58;1"></animate>
+    </circle>
+    <circle cx="798" cy="94" r="4.2" fill="#fff" opacity="0" filter="url(#soft)">
+      <animate attributeName="opacity" dur="3s" repeatCount="indefinite" values="0;0;0.8;0.8;0" keyTimes="0;0.52;0.56;0.62;1"></animate>
+    </circle>
+    <circle cx="874" cy="102" r="4.2" fill="#fff" opacity="0" filter="url(#soft)">
+      <animate attributeName="opacity" dur="3s" repeatCount="indefinite" values="0;0;0.8;0.8;0" keyTimes="0;0.56;0.60;0.66;1"></animate>
+    </circle>
+
+    <!-- HITCIRCLE 1 (0..0.33) -->
+    <g transform="translate(190,95)">
+      <circle r="118" fill="none" stroke="#fff" stroke-width="3" opacity="0">
+        <animate attributeName="r" dur="3s" repeatCount="indefinite" values="118;40;40" keyTimes="0;0.33;1"></animate>
+        <animate attributeName="opacity" dur="3s" repeatCount="indefinite" values="0;0.55;0.55;0;0" keyTimes="0;0.05;0.33;0.36;1"></animate>
+      </circle>
+
+      <circle r="44" fill="#fff" opacity="0.06"></circle>
+      <circle r="36" fill="#ff66cc" opacity="0.18"></circle>
+      <circle r="34" fill="none" stroke="#ff66cc" stroke-width="7" opacity="0.28" filter="url(#glow)">
+        <animate attributeName="opacity" dur="3s" repeatCount="indefinite" values="0.28;0.90;0.28;0.28" keyTimes="0;0.26;0.33;1"></animate>
+      </circle>
+      <text x="0" y="11" text-anchor="middle" font-family="Verdana, DejaVu Sans, Arial" font-size="26" fill="#fff" opacity="0.95">1</text>
+    </g>
+
+    <!-- HITCIRCLE 2 (0.33..0.66) -->
+    <g transform="translate(570,70)">
+      <circle r="118" fill="none" stroke="#fff" stroke-width="3" opacity="0">
+        <animate attributeName="r" dur="3s" repeatCount="indefinite" values="118;118;40;40" keyTimes="0;0.33;0.66;1"></animate>
+        <animate attributeName="opacity" dur="3s" repeatCount="indefinite" values="0;0;0.55;0.55;0;0" keyTimes="0;0.33;0.38;0.66;0.69;1"></animate>
+      </circle>
+
+      <circle r="44" fill="#fff" opacity="0.06"></circle>
+      <circle r="36" fill="#8b7bff" opacity="0.18"></circle>
+      <circle r="34" fill="none" stroke="#8b7bff" stroke-width="7" opacity="0.24" filter="url(#glow)">
+        <animate attributeName="opacity" dur="3s" repeatCount="indefinite" values="0.24;0.24;0.90;0.24;0.24" keyTimes="0;0.33;0.58;0.66;1"></animate>
+      </circle>
+      <text x="0" y="11" text-anchor="middle" font-family="Verdana, DejaVu Sans, Arial" font-size="26" fill="#fff" opacity="0.95">2</text>
+    </g>
+
+    <!-- HITCIRCLE 3 (0.66..1.0) -->
+    <g transform="translate(950,100)">
+      <circle r="118" fill="none" stroke="#fff" stroke-width="3" opacity="0">
+        <animate attributeName="r" dur="3s" repeatCount="indefinite" values="118;118;40" keyTimes="0;0.66;1"></animate>
+        <animate attributeName="opacity" dur="3s" repeatCount="indefinite" values="0;0;0.55;0.55;0" keyTimes="0;0.66;0.71;0.98;1"></animate>
+      </circle>
+
+      <circle r="44" fill="#fff" opacity="0.06"></circle>
+      <circle r="36" fill="#66ccff" opacity="0.16"></circle>
+      <circle r="34" fill="none" stroke="#66ccff" stroke-width="7" opacity="0.22" filter="url(#glow)">
+        <animate attributeName="opacity" dur="3s" repeatCount="indefinite" values="0.22;0.22;0.90;0.22" keyTimes="0;0.66;0.92;1"></animate>
+      </circle>
+      <text x="0" y="11" text-anchor="middle" font-family="Verdana, DejaVu Sans, Arial" font-size="26" fill="#fff" opacity="0.95">3</text>
+    </g>
+
+    <!-- Spinner (fixed pivot: rotate around local 0,0) -->
+    <g transform="translate(1090,42)" opacity="0.70" filter="url(#soft)">
+      <circle r="18" fill="none" stroke="#fff" stroke-width="2" opacity="0.18"></circle>
+      <path d="M0,-18 A18,18 0 0 1 14,10" fill="none" stroke="#ff66cc" stroke-width="3.2" stroke-linecap="round" opacity="0.85"></path>
+      <animateTransform attributeName="transform" type="rotate" values="0 0 0;360 0 0" dur="1.25s" repeatCount="indefinite"></animateTransform>
+    </g>
+  </g>
+
+  <!-- BOTTOM info panel -->
+  <g transform="translate(30,214)">
+    <rect x="0" y="0" width="1140" height="188" rx="18" fill="#000" opacity="0.16"></rect>
+
+    <g transform="translate(44,58)">
+      <text x="0" y="-12" font-size="44" font-family="Verdana, DejaVu Sans, Arial" fill="#ffffff" filter="url(#glow)">Mr wiskas</text>
+      <text x="2" y="20" font-size="16" font-family="Verdana, DejaVu Sans, Arial" fill="#cfd3ff" opacity="0.92">meow • Linux • Сон • Еда</text>
+
+      <text x="2" y="56" font-size="15" font-family="Verdana, DejaVu Sans, Arial" fill="#ffffff" opacity="0.82">
+        rank: <tspan fill="#ffb3e6">#95 294</tspan> (world) • <tspan fill="#ffb3e6">#9 075</tspan> (country) • pp: <tspan fill="#ffb3e6">5 065</tspan>
+      </text>
+
+      <text x="2" y="80" font-size="15" font-family="Verdana, DejaVu Sans, Arial" fill="#ffffff" opacity="0.66">
+        acc: <tspan fill="#bfe8ff">97,35%</tspan> • plays: <tspan fill="#bfe8ff">13 424</tspan> • time: <tspan fill="#bfe8ff">17d 19h 4m</tspan> • medals: <tspan fill="#bfe8ff">49</tspan> • max combo: <tspan fill="#bfe8ff">2 093</tspan>
+      </text>
+
+      <text x="2" y="110" font-size="15" font-family="Verdana, DejaVu Sans, Arial" fill="#ffffff" opacity="0.78">
+        top plays: <tspan fill="#ffd1f0">273pp</tspan> Domino • <tspan fill="#ffd1f0">243pp</tspan> Kiro Kira Days • <tspan fill="#ffd1f0">230pp</tspan> Of Our Time
+      </text>
+    </g>
+
+    <!-- Right: accuracy bar -->
+    <g transform="translate(760,56)">
+      <text x="0" y="-10" font-size="12" font-family="Verdana, DejaVu Sans, Arial" fill="#ffffff" opacity="0.55">accuracy</text>
+      <rect x="0" y="0" width="340" height="12" rx="6" fill="#ffffff" opacity="0.10"></rect>
+      <rect x="0" y="0" width="331.0" height="12" rx="6" fill="#66ccff" opacity="0.55" filter="url(#soft)">
+        <animate attributeName="opacity" values="0.45;0.62;0.45" dur="2.2s" repeatCount="indefinite"></animate>
+      </rect>
+      <text x="352" y="10" font-size="12" font-family="Verdana, DejaVu Sans, Arial" fill="#cfd3ff" opacity="0.92">97,35%</text>
+    </g>
+
+    <!-- Right: grades -->
+    <g transform="translate(760,106)" font-family="Verdana, DejaVu Sans, Arial">
+      <text x="0" y="-10" font-size="12" fill="#ffffff" opacity="0.55">grades</text>
+
+      <g transform="translate(0,0)">
+        <rect x="0" y="0" width="70" height="34" rx="10" fill="#ff66cc" opacity="0.20"></rect>
+        <text x="26" y="23" font-size="14" fill="#ffffff" opacity="0.95">SS</text>
+        <text x="62" y="23" text-anchor="end" font-size="14" fill="#ffffff" opacity="0.95">0</text>
+      </g>
+      <g transform="translate(78,0)">
+        <rect x="0" y="0" width="82" height="34" rx="10" fill="#ff66cc" opacity="0.16"></rect>
+        <text x="32" y="23" font-size="14" fill="#ffffff" opacity="0.95">SSH</text>
+        <text x="74" y="23" text-anchor="end" font-size="14" fill="#ffffff" opacity="0.95">5</text>
+      </g>
+      <g transform="translate(168,0)">
+        <rect x="0" y="0" width="70" height="34" rx="10" fill="#66ccff" opacity="0.16"></rect>
+        <text x="28" y="23" font-size="14" fill="#ffffff" opacity="0.95">S</text>
+        <text x="62" y="23" text-anchor="end" font-size="14" fill="#ffffff" opacity="0.95">16</text>
+      </g>
+      <g transform="translate(246,0)">
+        <rect x="0" y="0" width="70" height="34" rx="10" fill="#66ccff" opacity="0.12"></rect>
+        <text x="24" y="23" font-size="14" fill="#ffffff" opacity="0.95">SH</text>
+        <text x="62" y="23" text-anchor="end" font-size="14" fill="#ffffff" opacity="0.95">73</text>
+      </g>
+      <g transform="translate(324,0)">
+        <rect x="0" y="0" width="86" height="34" rx="10" fill="#a6ff7a" opacity="0.12"></rect>
+        <text x="26" y="23" font-size="14" fill="#ffffff" opacity="0.95">A</text>
+        <text x="78" y="23" text-anchor="end" font-size="14" fill="#ffffff" opacity="0.95">935</text>
+      </g>
+    </g>
+
+    <!-- Separator -->
+    <rect x="40" y="164" width="1060" height="2" rx="1" fill="#ffffff" opacity="0.08"></rect>
+  </g>
+</svg>
